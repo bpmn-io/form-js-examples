@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <!--
+      required viewer styles
+    -->
+    <link rel="stylesheet" href="https://unpkg.com/@bpmn-io/form-js@0.7.0/dist/assets/form-js.css">
+    <style>
+      #form {
+        max-width: 800px;
+      }
+    </style>
+
+    <title>Custom properties form-js example</title>
+  </head>
+
+  <body>
+    <div id="form"></div>
+
+    <!--
+      add your form schema to this script tag
+      alternatively, load it asynchronously from anywhere
+    -->
+    <script type="application/form-schema">
+    {
+      "schemaVersion": 1,
+      "exporter": {
+        "name": "form-js",
+        "version": "0.7.0"
+      },
+      "components": [
+        {
+          "type": "text",
+          "text": "# Invoice"
+        },
+        {
+          "id": "Field_2",
+          "key": "creditor",
+          "label": "Creditor",
+          "type": "textfield",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "values": [],
+          "label": "Approved By",
+          "type": "select",
+          "id": "Field_3",
+          "key": "approvedBy",
+          "properties": {
+            "externalData": "https://endpoint.com/customer"
+          }
+        },
+        {
+          "id": "Field_4",
+          "description": "An invoice number in the format: C-123.",
+          "key": "invoiceNumber",
+          "label": "Invoice Number",
+          "type": "textfield",
+          "validate": {
+            "pattern": "^C-[0-9]+$"
+          }
+        },
+        {
+          "id": "Field_5",
+          "key": "amount",
+          "label": "Amount",
+          "type": "number",
+          "validate": {
+            "min": 0,
+            "max": 1000
+          }
+        },
+        {
+          "action": "submit",
+          "label": "Submit",
+          "type": "button",
+          "id": "Field_6",
+          "key": "submit"
+        }
+      ],
+      "type": "default"
+     }
+    </script>
+
+    <script src="https://unpkg.com/@bpmn-io/form-js@0.7.0/dist/form-viewer.umd.js"></script>
+
+    <script async src="./customProperties.js"></script>
+     
+  </body>
+</html>
