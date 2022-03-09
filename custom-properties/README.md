@@ -40,20 +40,20 @@ if (type === "select" && properties && properties.externalData) {
 
   // use "externalData" to get API endpoint
   const endpoint = properties.externalData;
-  const res = fetch(endpoint, "GET");
+  const res = await fetch(endpoint, "GET");
 
   // map API response to field values
   field.values = res.map(option => ({
     value: option.id,
     label: option.name
-	}))
+  }));
 }
 ```
 
 After the schema is updated accordingly, you may re-import the schema to re-render.
 
 ```javascript
-form.importSchema(schema);
+await form.importSchema(schema);
 ```
 
 ## Run this Example
