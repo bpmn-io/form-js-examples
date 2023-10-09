@@ -1,0 +1,12 @@
+.range-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.range-group input {
+  width: 100%;
+}
+.range-group .range-value {
+  margin-left: 4px;
+}
