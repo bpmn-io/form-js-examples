@@ -1,0 +1,16 @@
+{
+  "type": "default",
+  "components": [
+    {
+      "type": "textarea",
+      "key": "message",
+      "label": "Provide feedback"
+    },
+    {
+      "type": "feedbackButton",
+      "label": "Send feedback",
+      "endpoint": "https://www.example.com/feedback",
+      "message": "=message"
+    }
+  ]
+}
