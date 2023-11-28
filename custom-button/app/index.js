@@ -1,7 +1,7 @@
 import { FormPlayground } from '@bpmn-io/form-js';
 
-import RenderExtension from './extension/render';
-import PropertiesPanelExtension from './extension/propertiesPanel';
+import FeedbackButtonRenderExtension from './extension/render';
+import FeedbackButtonPropertiesPanelExtension from './extension/propertiesPanel';
 
 import '@bpmn-io/form-js/dist/assets/form-js.css';
 import '@bpmn-io/form-js/dist/assets/form-js-editor.css';
@@ -16,9 +16,9 @@ new FormPlayground({
   schema: schema,
   data: {},
   additionalModules: [
-    RenderExtension
+    FeedbackButtonRenderExtension
   ],
   editorAdditionalModules: [
-    PropertiesPanelExtension
+    FeedbackButtonPropertiesPanelExtension
   ]
 });
