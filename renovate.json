@@ -2,15 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>bpmn-io/renovate-config:recommended"
-  ],
-  "packageRules": [
-    {
-      "matchPackagePatterns": [
-        "form-js.*",
-        "@bpmn-io/form-js.*"
-      ],
-      "groupName": "form-js dependencies",
-      "groupSlug": "form-js"
-    }
   ]
 }
