@@ -1,3 +1,5 @@
+/* global FormViewer */
+
 // (1) load form
 const schema = JSON.parse(
   document.querySelector('[type="application/form-schema"]').textContent
@@ -22,22 +24,21 @@ loadForm.then(async (form) => {
     const field = components[i];
     const {
       properties,
-      id,
       type
     } = field;
 
-    if (type === "select" && hasExternalData(field)) {
+    if (type === 'select' && hasExternalData(field)) {
 
       // (2.1) use custom property "externalData" to get external API endpoint
       const endpoint = properties.externalData;
-      const res = await preloadData(endpoint, "GET");
+      const res = await preloadData(endpoint, 'GET');
 
       // (2.2) map request response to field values
       field.values = res.map(option => ({
         value: option.id,
         label: option.name
       }));
-      
+
     }
 
   }
@@ -47,12 +48,12 @@ loadForm.then(async (form) => {
 
   form.on('submit', (event) => {
     console.log(event.data, event.errors);
-    alert("Form submitted!")
+    alert('Form submitted!');
   });
-})
+});
 
 
-// helpers 
+// helpers
 
 function hasExternalData(field) {
   const {
@@ -62,14 +63,15 @@ function hasExternalData(field) {
 }
 
 async function preloadData(url, method) {
+
   // mock api response
-  return [{
-      name: "John Smith",
-      id: "johnSmith"
-    },
-    {
-      name: "Jane Doe",
-      id: "janeDoe"
-    }
+  return [ {
+    name: 'John Smith',
+    id: 'johnSmith'
+  },
+  {
+    name: 'Jane Doe',
+    id: 'janeDoe'
+  }
   ];
 }
