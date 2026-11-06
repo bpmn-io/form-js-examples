@@ -1,0 +1,33 @@
+{
+  "name": "form-js-examples",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpmn-io/form-js-examples"
+  },
+  "keywords": [
+    "form-js-example"
+  ],
+  "scripts": {
+    "all": "run-s lint build",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "eslint ."
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-plugin-bpmn-io": "^2.4.0",
+    "npm-run-all2": "^9.0.4"
+  },
+  "workspaces": [
+    "custom-button",
+    "custom-components"
+  ]
+}
