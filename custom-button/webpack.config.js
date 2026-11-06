@@ -6,6 +6,9 @@ const {
 
 const CopyPlugin = require('copy-webpack-plugin');
 
+// resolve preact from wherever it got installed (hoisted to the workspace root)
+const preactDir = path.dirname(require.resolve('preact/package.json'));
+
 module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
@@ -37,12 +40,12 @@ module.exports = {
       function(resource) {
 
         const replMap = {
-          'preact/hooks': path.resolve('node_modules/preact/hooks/dist/hooks.module.js'),
-          'preact/jsx-runtime': path.resolve('node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js'),
-          'preact': path.resolve('node_modules/preact/dist/preact.module.js'),
-          '../preact/hooks': path.resolve('node_modules/preact/hooks/dist/hooks.module.js'),
-          '../preact/jsx-runtime': path.resolve('node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js'),
-          '../preact': path.resolve('node_modules/preact/dist/preact.module.js')
+          'preact/hooks': path.join(preactDir, 'hooks/dist/hooks.module.js'),
+          'preact/jsx-runtime': path.join(preactDir, 'jsx-runtime/dist/jsxRuntime.module.js'),
+          'preact': path.join(preactDir, 'dist/preact.module.js'),
+          '../preact/hooks': path.join(preactDir, 'hooks/dist/hooks.module.js'),
+          '../preact/jsx-runtime': path.join(preactDir, 'jsx-runtime/dist/jsxRuntime.module.js'),
+          '../preact': path.join(preactDir, 'dist/preact.module.js')
         };
 
         const replacement = replMap[resource.request];
